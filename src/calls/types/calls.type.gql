@@ -20,6 +20,9 @@ type Call {
     participant_ids: [UUID!]!
     company_id: UUID
     call_url: URL
+    created_at: DateTime!
+    updated_at: DateTime!
+    updated_by: UpdatedBy!
 }
 
 input CreateCallInput {

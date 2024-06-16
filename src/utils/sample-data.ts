@@ -17,6 +17,12 @@ export const SampleCall = {
     participant_ids: [randomUUID(), randomUUID()],
     tag_ids: [randomUUID(), randomUUID()],
     topic_ids: [randomUUID(), randomUUID()],
+    created_at: new Date(),
+    updated_at: new Date(),
+    updated_by: {
+        type: 'USER',
+        user_id: randomUUID(),
+    },
 } satisfies Call;
 
 const CallTranscripts = [
@@ -50,6 +56,12 @@ export const SamplesTranscripts = CallTranscripts.map<Transcript>(
         timestamp: new Date(
             SampleCall.scheduled_at.getTime() + index * 60 * 1000
         ),
+        created_at: new Date(),
+        updated_at: new Date(),
+        updated_by: {
+            event_id: randomUUID(),
+            event_name: 'TRANSCRIPT_GENERATED',
+        },
     })
 );
 
@@ -82,4 +94,10 @@ export const SampleSummary = {
             SampleCall.scheduled_at.getTime() + index * 60 * 1000
         ),
     })),
+    created_at: new Date(),
+    updated_at: new Date(),
+    updated_by: {
+        event_id: randomUUID(),
+        event_name: 'SUMMARY_GENERATED',
+    },
 } satisfies Summary;

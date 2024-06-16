@@ -6,6 +6,9 @@ type Transcript {
     language: String!
     participant_id: UUID!
     topic_id: UUID!
+    created_at: DateTime!
+    updated_at: DateTime!
+    updated_by: UpdatedBy!
 }
 
 type Query {

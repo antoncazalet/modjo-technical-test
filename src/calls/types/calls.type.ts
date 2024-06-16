@@ -1,3 +1,5 @@
+import type { UpdatedBy } from '../../utils/updated-by.type';
+
 export type CallStatus =
     | 'DRAFT'
     | 'SCHEDULED'
@@ -19,6 +21,9 @@ export type Call = {
     participant_ids: string[];
     company_id: string | null;
     call_url: string | null;
+    created_at: Date;
+    updated_at: Date;
+    updated_by: UpdatedBy;
 };
 
 export type CreateCallInput = {

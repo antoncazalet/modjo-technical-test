@@ -23,6 +23,12 @@ export class TranscriptsComponent {
     createTranscript(transcript: CreateTranscriptInput) {
         return this.transcripts.push({
             id: randomUUID(),
+            created_at: new Date(),
+            updated_at: new Date(),
+            updated_by: {
+                event_id: randomUUID(),
+                event_name: 'TRANSCRIPT_GENERATED',
+            },
             ...transcript,
         });
     }

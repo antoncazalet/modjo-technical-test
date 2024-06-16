@@ -7,6 +7,7 @@ import { typeDefs } from 'graphql-scalars';
 import { CallsModule } from './calls/calls.module';
 import { SummariesModule } from './summaries/summaries.module';
 import { TranscriptsModule } from './transcripts/transcripts.module';
+import { UpdatedByResolver } from './utils/updated-by.resolver';
 
 @Module({
     imports: [
@@ -29,5 +30,6 @@ import { TranscriptsModule } from './transcripts/transcripts.module';
         TranscriptsModule,
         SummariesModule,
     ],
+    providers: [UpdatedByResolver],
 })
 export class AppModule {}

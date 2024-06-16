@@ -21,6 +21,12 @@ export class SummariesComponent {
     createTranscript(summary: CreateSummaryInput) {
         return this.summaries.push({
             id: randomUUID(),
+            created_at: new Date(),
+            updated_at: new Date(),
+            updated_by: {
+                event_id: randomUUID(),
+                event_name: 'SUMMARY_GENERATED',
+            },
             ...summary,
         });
     }

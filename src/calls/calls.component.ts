@@ -17,6 +17,12 @@ export class CallsComponent {
             id: randomUUID(),
             creator_id: randomUUID(),
             status: input.scheduled_at ? 'SCHEDULED' : 'DRAFT',
+            created_at: new Date(),
+            updated_at: new Date(),
+            updated_by: {
+                type: 'USER',
+                user_id: randomUUID(),
+            },
             ...input,
         });
 
@@ -32,8 +38,10 @@ export class CallsComponent {
 
         // An ORM would handle this for you
         this.calls[index] = {
-            ...filterOutUndefined(input),
             ...this.calls[index],
+            ...filterOutUndefined(input),
+            updated_at: new Date(),
+            // updatedBy...
         };
 
         return this.calls[index];

@@ -1,3 +1,5 @@
+import type { UpdatedBy } from '../../utils/updated-by.type';
+
 export type KeyPoint = {
     category:
         | 'CUSTOMER_INFORMATION'
@@ -17,6 +19,13 @@ export type Summary = {
     call_id: string;
     language: string;
     key_points: KeyPoint[];
+    created_at: Date;
+    updated_at: Date;
+    updated_by: UpdatedBy;
 };
 
-export type CreateSummaryInput = Omit<Summary, 'id'>;
+export type CreateSummaryInput = {
+    call_id: string;
+    language: string;
+    key_points: KeyPoint[];
+};

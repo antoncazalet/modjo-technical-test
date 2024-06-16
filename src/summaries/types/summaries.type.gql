@@ -20,6 +20,9 @@ type Summary {
     call_id: UUID!
     language: String!
     key_points: [KeyPoint!]!
+    created_at: DateTime!
+    updated_at: DateTime!
+    updated_by: UpdatedBy!
 }
 
 type Query {

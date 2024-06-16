@@ -1,0 +1,16 @@
+enum UserTypeEnum {
+    ADMINISTRATOR
+    USER
+}
+
+union UpdatedBy = UserUpdatedBy | AsyncWorkerUpdatedBy
+
+type UserUpdatedBy {
+    user_id: UUID!
+    type: UserTypeEnum!
+}
+
+type AsyncWorkerUpdatedBy {
+    event_name: String!
+    event_id: UUID!
+}
