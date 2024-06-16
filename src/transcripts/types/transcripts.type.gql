@@ -1,0 +1,13 @@
+type Transcript {
+    id: UUID!
+    call_id: UUID!
+    timestamp: Timestamp!
+    content: String!
+    language: String!
+    participant_id: UUID!
+    topic_id: UUID!
+}
+
+type Query {
+    TranscriptsByCallId(call_id: UUID!): [Transcript!]!
+}

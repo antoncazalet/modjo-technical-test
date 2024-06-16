@@ -1,0 +1,59 @@
+enum CallStatus {
+    DRAFT
+    SCHEDULED
+    IN_PROGRESS
+    COMPLETED
+    CANCELLED
+}
+
+type Call {
+    id: UUID!
+    title: String!
+    description: String
+    status: CallStatus!
+    creator_id: String!
+    tag_ids: [UUID!]!
+    topic_ids: [UUID!]!
+    scheduled_at: DateTime
+    starts_at: DateTime
+    ends_at: DateTime
+    participant_ids: [UUID!]!
+    company_id: UUID
+    call_url: URL
+}
+
+input CreateCallInput {
+    title: String!
+    description: String
+    tag_ids: [UUID!]!
+    topic_ids: [UUID!]!
+    scheduled_at: DateTime
+    starts_at: DateTime
+    ends_at: DateTime
+    participant_ids: [UUID!]!
+    company_id: UUID
+    call_url: URL
+}
+
+input UpdateCallInput {
+    title: String
+    description: String
+    tag_ids: [UUID!]
+    topic_ids: [UUID!]
+    scheduled_at: DateTime
+    starts_at: DateTime
+    ends_at: DateTime
+    participant_ids: [UUID!]
+    company_id: UUID
+    call_url: URL
+}
+
+type Mutation {
+    createCall(input: CreateCallInput!): Call!
+    updateCall(id: UUID!, input: UpdateCallInput!): Call
+}
+
+type Query {
+    Calls: [Call!]!
+    Call(id: UUID!): Call
+}

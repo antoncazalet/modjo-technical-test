@@ -1,0 +1,27 @@
+enum KeyPointCategoryEnum {
+    CUSTOMER_INFORMATION
+    CUSTOMER_OBSERVATION
+    OBJECTIONS
+    NEXT_STEPS
+    COMPETITOR_INFORMATION
+    PRICING
+    PRODUCT_INFORMATION
+    OTHER
+}
+
+type KeyPoint {
+    category: KeyPointCategoryEnum!
+    content: String!
+    timestamp: Date
+}
+
+type Summary {
+    id: UUID!
+    call_id: UUID!
+    language: String!
+    key_points: [KeyPoint!]!
+}
+
+type Query {
+    SummaryByCallId(call_id: UUID!): Summary
+}
